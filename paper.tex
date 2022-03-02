@@ -1,0 +1,81 @@
+%!TeX program = lualatex
+
+% load configuration options, and call \documentclass
+\input{./src/tex/mehtex}
+
+\begin{document}
+
+\maketitle
+
+I am groot
+
+Hello, 500 $ = 500$
+
+\textit{Hello, 500 }$\mathit{ = 500}$
+
+\textbf{Hello, 500 }$\mathbf{ = 500}$
+ 
+\begin{abstract}
+	This is my abstract
+\end{abstract}
+
+\ifluatex
+	This is Lua\LaTeX
+% code used only by luatex
+\fi
+\ifxetex
+	This is Xe\LaTeX
+\fi
+ 
+Small ist sehrs beautiful.
+Hello there, how do you feel? \\
+Setup my vim
+
+
+% \newpage
+Test page 2
+
+% \newpage
+Test page 3
+Please don't \fbox{Split me} ever!
+This is my clever ``example'', ``example".
+ 
+\begin{figure}
+	\centering
+	\input{./build/python/plot.pgf}
+	\caption{My better}
+	\label{fig:my-better}
+\end{figure}
+is Still better than \Cref{fig:my-better}. \Cref{fig:my-better} is better than.
+500\\
+$500$
+
+\begin{nicemath}
+    a & = & b^2 + c^2 - 12 - 24 \\
+      & = & \Omega \cdot \beta \nonumber\\
+      &   & \gamma\\
+      & = & \pi\\
+      & = & x^2 + y^2\\
+      & = & 500^2\\
+      & = & a_n \frac{n\pi x}{L}
+\end{nicemath}
+
+
+\begin{abstract}
+	This is my other abstract, is better.
+\end{abstract}
+
+Here is my equation:\\
+
+
+The author is ``\mehauthor''\\
+The font is ``\mehfont''\\
+The fontsize is ``\mehfontsize''\\
+
+
+\ifdraft{Hello, we are in draft mode}{Nope, in FINAL}\\
+This is nonsense\\
+\ifdraft{}{We are not in draft mode}
+
+
+\end{document}
