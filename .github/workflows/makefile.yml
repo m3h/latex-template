@@ -10,12 +10,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-    container: blang/latex:ctanfull
 
     steps:
-    - uses: actions/checkout@v2
     - name: Install using tlmgr
-      run: tlmgr install mathfont
+      run: sudo apt install texlive-full
         
     - name: Install dependencies
       run: make
