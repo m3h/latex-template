@@ -28,5 +28,8 @@ build/python/venv/touchfile: src/python/requirements.txt
 build/python/%.pgf : src/python/plots/%.py build/python/venv
 	. ./build/python/venv/bin/activate; python $< $@
 
+build/python/%.pdf : src/python/plots/%.py build/python/venv
+	. ./build/python/venv/bin/activate; python $< $@
+
 clean:
 	rm -rf ./build/
