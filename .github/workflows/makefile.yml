@@ -14,8 +14,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-      run: tlmgr install mathfont
     - name: Install using tlmgr
+      run: tlmgr install mathfont
         
     - name: Install dependencies
       run: make
