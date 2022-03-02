@@ -1,0 +1,13 @@
+% m3h's little shortcuts
+
+% Load paper configuration options
+% these are defined in confpaper.conf
+% and are loaded using loadconfiguration.lua
+
+\directlua{require("./src/lua/loadconfiguration")}
+\documentclass[
+	\mehfontsize,
+	\mehstage
+]{article}
+
+\input{./src/tex/mehtex-common}

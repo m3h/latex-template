@@ -1,0 +1,29 @@
+% provides \ifdraft
+\usepackage{ifdraft}
+% lets us load matplotlib .pgf files
+\usepackage{pgf}
+
+% provides \RequireLuaTeX
+\usepackage{iftex} % provides \RequireLuaTeX
+% \RequireLuaTeX
+
+% provides \cref, \Cref
+\usepackage{cleveref}
+
+% Set font (including math font), as set by confpaper.conf
+\usepackage{mathfont}
+\setfont{\mehfont}
+
+% set author, according to confpaper.conf
+\author{\mehauthor}
+% set title , according to confpaper.conf
+\title{\mehtitle}
+
+
+% Math environment, sets the most common functionality
+\usepackage{IEEEtrantools}
+
+\newenvironment
+	{nicemath}
+	{\begin{IEEEeqnarray}{rCl}}
+	{\end{IEEEeqnarray}}
