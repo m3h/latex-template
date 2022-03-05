@@ -14,7 +14,9 @@ def apply_tex_config():
         "font.serif": [paperconf.mehfont],
         "font.sans-serif": [paperconf.mehfont],
         "font.monospace": [paperconf.mehfont],
-        "font.size": paperconf.mehfontsize.removesuffix('pt'),
+        # Only available in Python 3.9+
+        # "font.size": paperconf.mehfontsize.removesuffix('pt'),
+        "font.size": paperconf.mehfontsize.split('pt')[0],
         "text.usetex": True,
         "pgf.preamble": paperconf.mehtex_preamble,
         "pgf.texsystem": 'lualatex',

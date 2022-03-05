@@ -18,7 +18,7 @@ $(DEPS_DIR) :
 build/python/venv: build/python/venv/touchfile
 
 build/python/venv/touchfile: src/python/requirements.txt
-	test -d venv/venv || python -m venv build/python/venv
+	test -d venv/venv || python3 -m venv build/python/venv
 	. build/python/venv/bin/activate; \
 		pip install \
 		--upgrade \
@@ -26,10 +26,10 @@ build/python/venv/touchfile: src/python/requirements.txt
 	touch build/python/venv/touchfile
 
 build/python/%.pgf : src/python/plots/%.py build/python/venv
-	. ./build/python/venv/bin/activate; python $< $@
+	. ./build/python/venv/bin/activate; python3 $< $@
 
 build/python/%.pdf : src/python/plots/%.py build/python/venv
-	. ./build/python/venv/bin/activate; python $< $@
+	. ./build/python/venv/bin/activate; python3 $< $@
 
 clean:
 	rm -rf ./build/
