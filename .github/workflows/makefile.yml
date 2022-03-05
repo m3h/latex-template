@@ -19,17 +19,17 @@ jobs:
     - name: EULA 
       run: echo ttf-mscorefonts-installer msttcorefonts/accepted-mscorefonts-eula select true | debconf-set-selections
     - name: Install other dependencies
-      run: >
-        DEBIAN_FRONTEND=noninteractive apt-get update 
-        && DEBIAN_FRONTEND=noninteractive apt-get install 
-        --assume-yes
-        --quiet
-        --allow-unauthenticated
-        --allow-downgrades
-        --allow-remove-essential
-        --allow-change-held-packages
-        --option Dpkg::Options::="--force-confold"
-        ttf-mscorefonts-installer make python3 python3-venv
+      run: |
+        DEBIAN_FRONTEND=noninteractive apt-get update  \
+        && DEBIAN_FRONTEND=noninteractive apt-get install \
+        --assume-yes \
+        --quiet \
+        --allow-unauthenticated \
+        --allow-downgrades \
+        --allow-remove-essential \
+        --allow-change-held-packages \
+        --option Dpkg::Options::="--force-confold" \
+        ttf-mscorefonts-installer make python3 python3-venv fontconfig
 
     - name: Install dependencies
       run: make
