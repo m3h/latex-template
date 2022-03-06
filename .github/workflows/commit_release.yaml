@@ -2,7 +2,7 @@ name: Comment when opened
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   release:
