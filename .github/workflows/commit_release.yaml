@@ -1,0 +1,33 @@
+name: Comment when opened
+on:
+push:
+  branches:
+    - main
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get Latest Release Version
+        id: release_latest
+        run: |
+          latest_ver=$(gh release list --limit 1 | cut -f1) \
+          && echo "::set-output name=release_latest::$(echo $latest_ver)"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Calculate Next Minor Release Version
+        id: release_next
+        run: |
+          export lv=${{ steps.release_latest.outputs.release_latest }} \
+          && export vprefix=$(echo $lv | cut -d. -f1-2) \
+          && export vpatch=$(( $(echo $lv | cut -d. -f3) + 1)) \
+          && export nv="${vprefix}.${vpatch}" \
+          && echo "::set-output name=release_version::$(echo $nv)"
+
+      - run: |
+          gh release create \
+          ${{ steps.release_next.outputs.release_version }} \
+          --generate-notes
+
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
